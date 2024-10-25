@@ -1,0 +1,40 @@
+body{
+  text-align: center;
+  background-color:lightslategray;
+  color:azure;
+  font-size: 1em;
+  font-family:'Trebuchet MS', sans-serif;
+
+}
+
+h2{
+  font-family:'Trebuchet MS', sans-serif;
+}
+fieldset{
+  margin:5% 35%;
+  width: 30%;
+}
+legend{
+  font-style: italic;
+  font-weight: bold;
+}
+label, input{
+  margin: 5px;
+}
+table,th,td{
+  border: 1px solid white;
+  border-collapse: collapse;
+}
+table{
+  width: 50%;
+  margin: 3% 25%;
+}
+th{
+  color: darkviolet;
+  font-weight: bold;
+}
+td{
+  font-family: 'Times New Roman', Times, serif;
+}
+
+

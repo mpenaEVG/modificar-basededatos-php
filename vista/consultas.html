@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Consultas</title>
+    <link rel=stylesheet href="../css/estilo.css">
+  </head>
+  <body>
+    
+    <h2>Consultas a la Base de Datos</h2>
+
+    <form action=mostrar.php method=POST>
+      <fieldset>
+        <legend>Insertar datos</legend>
+        <label>Nombre del alumno</label>
+        </br>
+        <input type=text name=nombre>
+        </br>
+        <input type=submit name=accion value=insertar>
+      </fieldset> 
+ 
+      <fieldset>
+        <legend>Borrar datos</legend>
+        <label>Id del alumno</label>
+        </br>
+        <input type=number name=id min=0 max=20>
+        </br>
+        <input type=submit name=accion value=borrar>
+      </fieldset> 
+
+      <fieldset>
+        <legend>Modificar datos</legend>
+        <label>Nombre antiguo</label>
+        </br>
+        <input type=text name=nombreBorrar>
+        </br>
+        <label>Introduce nuevo nombre</label>
+        </br>
+        <input type=text name=nuevoNombre>
+        </br>
+        <input type=submit  name=accion value=modificar>
+      </fieldset> 
+    </form>
+  </body>
+</html>
