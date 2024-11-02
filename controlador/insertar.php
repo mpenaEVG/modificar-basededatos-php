@@ -1,17 +1,31 @@
 <?php 
+require '../modelo/socket.php';
 
-  function insertar($mysqli){
-    if(isset($_POST['nombre'])){
-       $nombre = strtolower($_POST['nombre']);
+function insertar(){
+  global $mysqli;
+
+  if(isset($_POST['nombre'])){
+    $nombre = $_POST['nombre'];
     }
+  if(isset($_POST['correo_electronico'])){
+    $correo = $_POST['correo_electronico'];
+  }
+  if(isset($_POST['dni'])){
+    $dni = $_POST['dni'];
+  }
 
-      $sql = "INSERT INTO alumnos (nombre) VALUES ('". $nombre ."');";
-
-      if($mysqli->query($sql)){
-        echo "<script>alert('¡Alumno introducido!')</script>";
-      }else{
-        echo "<script>alert('Error al introducir alumno')</script>";
-        }
+    $sqlInsert= "INSERT INTO alumnos (nombre,dni,correo_electronico) VALUES (?,?,?);";
+    $stmt = $mysqli->prepare($sqlInsert);
+    if($stmt){
+      $stmt->bind_param("sss",$nombre,$dni,$correo);
+      $stmt->execute();
+    }else{
+      echo "error al hacer en insert";
     }
+}
+insertar();
+header('Location: ../index.php');
+exit;
+
   
 
