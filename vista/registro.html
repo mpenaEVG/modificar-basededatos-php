@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Registro</title>
+    <link rel="stylesheet" href="../css/estilo.css">
+  </head>
+  <body>
+    <form action="../controlador/registro.php" method=POST>
+    <label for=email>Correo Electrónico</label>
+    <input type=email name=email required></br></br>
+
+    <label for=username>Introduce nombre de usuario</label>
+    <input type=name name=username required></br></br>
+
+    <label for=contrasena>Introduce contraseña</label>
+    <input type="password" name=contrasena required></br>
+    <button name=mostrarContrasena onclick="mostrar()">👁️</button><br><br>
+    <label for=repiteContrasena>Vuelve a introducir la contraseña</label>
+    <input type="password" name=contrasena required></br></br>
+
+
+
+    </form>
+  </body>
+</html>

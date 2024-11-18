@@ -24,6 +24,8 @@
         <br>
         <input type="submit" value="Iniciar Sesión">
     </form>
+  
+    <a href="vista/registro.html">Registrarse</a>
 
   <?php
       require 'modelo/socket.php';
