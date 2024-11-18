@@ -1,8 +1,7 @@
 <?php 
 
 require_once '../modelo/socket.php';
-
-
+require_once 'enviarcorreo.php';
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
   $username = trim($_POST['username']);
@@ -20,10 +19,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     
     if($stmt->execute()){
       echo "Usuario Introducido correctamente";
+      enviarCorreo($username,$email);
     }else {
 
       echo "Error al introducir al usuario";
     }
+
     
     $stmt->close();
     $mysqli->close();
