@@ -32,9 +32,9 @@
 
       if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $usuario = $_POST['usuario'];
-        $contrasena = $_POST['contrasena'];
+        $contrasena = trim($_POST['contrasena']);
 
-        $sqlContrasena = "SELECT contrasena FROM users WHERE usuario = ?";
+        $sqlContrasena = "SELECT password FROM users WHERE usuario = ?";
         $stmt = $mysqli->prepare($sqlContrasena);
         if($stmt){
           $stmt->bind_param("s",$usuario);
@@ -46,13 +46,12 @@
         $resultado = $stmt->get_result();
         $fila =  $resultado->fetch_assoc();
 
-
-        if($fila && $contrasena === $fila['contrasena']){
+        if($fila && password_verify($contrasena, $fila['password'])){
           $_SESSION['loggedin'] = true;
           header('Location: index.php');
           exit;
         }else{
-          echo "usuario u contraseña incorrectos";
+          echo "usuario o contraseña incorrectos";
         }
          
       }
