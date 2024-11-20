@@ -34,7 +34,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
           echo json_encode(['success'=>true,'mensaje'=>'Inicio de sesión exitoso']);
           exit;
         }else{
-          echo json_encode(['success'=>false,'mensaje'=>'Usuario o contraseña incorrecto'])
+          echo json_encode(['success'=>false,'mensaje'=>'Usuario o contraseña incorrecto']);
         }
          
       }

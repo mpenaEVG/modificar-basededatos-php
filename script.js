@@ -2,12 +2,30 @@ const formulario = document.getElementById('formulario').addEventListener('submi
 
   event.preventDefault()
 
-  const usuario = document.getElementById('usuario')
-  const password = document.getElementById('password')
 
   const formData = new FormData(this)
 
-  
+  try{
+    const response = await fetch('verificarConexion.php', {
+      method: 'POST',
+      body: formData,
+    })
+
+    if(response.ok){
+      const result =  await response.json()
+      if(result.success){
+        alert(result.mensaje);
+        window.location.href= 'index.php';
+      }else{
+        document.getElementById('resultado').innerHTML = result.mensaje;
+      }
+    }else{
+        document.getElementById('resultado').innerHTML = 'Error al conectarse con el servidor'
+    }
+  }catch(error){
+    console.error(error)
+    document.getElementById('resultado').innerHTML = 'Error de conexión'
+  }
 
   
 })

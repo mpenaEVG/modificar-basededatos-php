@@ -23,38 +23,10 @@
         <input type="password" name="contrasena" required>
         <br>
         <input type="submit" value="Iniciar Sesión">
+        <p id=resultado></p>
     </form>
   
     <a href="vista/registro.html">Registrarse</a>
 
-  <?php
-      require 'modelo/socket.php';
-
-      if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        $usuario = $_POST['usuario'];
-        $contrasena = trim($_POST['contrasena']);
-
-        $sqlContrasena = "SELECT password FROM users WHERE usuario = ?";
-        $stmt = $mysqli->prepare($sqlContrasena);
-        if($stmt){
-          $stmt->bind_param("s",$usuario);
-          $stmt->execute();
-        }else{
-          echo "error usuario erróneo";
-        }
-
-        $resultado = $stmt->get_result();
-        $fila =  $resultado->fetch_assoc();
-
-        if($fila && password_verify($contrasena, $fila['password'])){
-          $_SESSION['loggedin'] = true;
-          header('Location: index.php');
-          exit;
-        }else{
-          echo "usuario o contraseña incorrectos";
-        }
-         
-      }
-    ?>
 </body>
 </html>
