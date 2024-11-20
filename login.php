@@ -15,7 +15,7 @@
 </head>
 <body>
     <h2>Iniciar Sesión</h2>
-    <form method=POST>
+    <form id=formulario>
         <label for="usuario">Usuario:</label>
         <input type="text" name="usuario" required>
         <br>
