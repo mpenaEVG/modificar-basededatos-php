@@ -1,5 +1,4 @@
 const formulario = document.getElementById('formulario').addEventListener('submit', async function (event) {
-
   event.preventDefault()
 
 
@@ -8,15 +7,16 @@ const formulario = document.getElementById('formulario').addEventListener('submi
   try{
     const response = await fetch('verificarConexion.php', {
       method: 'POST',
-      body: formData,
+      body: formData
     })
 
     if(response.ok){
       const result =  await response.json()
       if(result.success){
-        alert(result.mensaje);
         window.location.href= 'index.php';
+        alert(result.mensaje);
       }else{
+        console.log(response)
         document.getElementById('resultado').innerHTML = result.mensaje;
       }
     }else{

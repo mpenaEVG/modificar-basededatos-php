@@ -11,7 +11,6 @@ try{
 
   $mysqli = new mysqli($host, $user, $passwd,$db);
 
-  echo "<script>console.log('conexion exitosa a la base de datos')</script>";
 
 }catch(mysqli_sql_exception $e){
 

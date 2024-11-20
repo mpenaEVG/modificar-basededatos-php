@@ -15,18 +15,18 @@
 </head>
 <body>
     <h2>Iniciar Sesión</h2>
-    <form id=formulario>
+    <form id=formulario method=POST>
         <label for="usuario">Usuario:</label>
-        <input type="text" name="usuario" required>
+        <input type="text" id=usuario name="usuario" required>
         <br>
         <label for="contrasena">Contraseña:</label>
-        <input type="password" name="contrasena" required>
+        <input type="password" id=contrasena name="contrasena" required>
         <br>
         <input type="submit" value="Iniciar Sesión">
         <p id=resultado></p>
     </form>
   
     <a href="vista/registro.html">Registrarse</a>
-
+    <script src=script.js></script>
 </body>
 </html>

@@ -1,5 +1,7 @@
 <?php
-      require 'modelo/socket.php';
+  header('Content-Type: application/json');
+require 'modelo/socket.php';
+session_start();
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
@@ -32,7 +34,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         if($fila && password_verify($contrasena, $fila['password'])){
           $_SESSION['loggedin'] = true;
           echo json_encode(['success'=>true,'mensaje'=>'Inicio de sesión exitoso']);
-          exit;
+          exit();
         }else{
           echo json_encode(['success'=>false,'mensaje'=>'Usuario o contraseña incorrecto']);
         }
