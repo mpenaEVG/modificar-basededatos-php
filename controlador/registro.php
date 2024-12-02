@@ -20,6 +20,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     if($stmt->execute()){
       echo "Usuario Introducido correctamente";
       enviarCorreo($username,$email);
+      header('Location: ../login.php');
     }else {
 
       echo "Error al introducir al usuario";
